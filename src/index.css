@@ -1,0 +1,363 @@
+/* URL IMPORTS (SUCH AS FONT IMPORTS) SHOULD BE KEPT ABOVE TAILWIND IMPORTS - DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+/* PLEASE NOTE: THESE TAILWIND IMPORTS SHOULD NEVER BE DELETED - DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL - DO NOT DELETE THIS COMMENT */
+
+:root {
+  --color-deep-black: #0A0A0A;
+  --color-rich-black: #1A1A1A;
+  --color-charcoal: #2A2A2A;
+  --color-gold: #A2234E;
+  --color-gold-muted: #8F1F45;
+  --color-gold-dark: #7A1A3B;
+  --color-cream: #F5F1E8;
+  --color-cream-muted: #D4CFC4;
+  --color-cream-dark: #B8B3A8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Crimson Text', serif;
+  background-color: var(--color-deep-black);
+  color: var(--color-cream);
+  overflow-x: hidden;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar - luxury style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Particle canvas */
+.particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content layer */
+.content-layer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Editorial ornamental divider */
+.ornamental-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  margin: 3rem 0;
+  position: relative;
+}
+
+.ornamental-divider::before {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-deep-black);
+  padding: 0 1rem;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+}
+
+/* Drop cap for editorial paragraphs */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  float: left;
+  margin: 0.1em 0.1em 0 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* Pull quote styling */
+.pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--color-gold);
+  border-left: 3px solid var(--color-gold);
+  padding-left: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.pull-quote::before {
+  content: '"';
+  font-size: 6rem;
+  position: absolute;
+  left: -0.5rem;
+  top: -2rem;
+  color: var(--color-gold);
+  opacity: 0.3;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Byline styling */
+.byline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-cream-muted);
+  border-top: 1px solid var(--color-charcoal);
+  border-bottom: 1px solid var(--color-charcoal);
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+}
+
+/* Issue number styling */
+.issue-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-muted);
+}
+
+/* Input focus styles - refined */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+input,
+textarea {
+  font-family: 'Crimson Text', serif;
+}
+
+/* Button styles - luxury editorial */
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-deep-black);
+  padding: 14px 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gold-dark);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-cream);
+  padding: 14px 40px;
+  border: 1px solid var(--color-gold);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gold);
+  color: var(--color-deep-black);
+  transform: translateY(-2px);
+}
+
+/* Editorial link styling */
+a.editorial-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  font-family: 'Crimson Text', serif;
+}
+
+a.editorial-link:hover {
+  border-bottom-color: var(--color-gold);
+}
+
+/* Magazine card styling */
+.magazine-card {
+  background: var(--color-rich-black);
+  border: 1px solid var(--color-charcoal);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.magazine-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magazine-card:hover::after {
+  transform: scaleX(1);
+}
+
+.magazine-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+/* 3D Canvas Container */
+.canvas-3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Fade in animation - refined */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Editorial section number */
+.section-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  position: absolute;
+  opacity: 0.1;
+  line-height: 1;
+  z-index: 0;
+}
+
+/* Column layout for editorial text */
+.editorial-columns {
+  column-count: 2;
+  column-gap: 3rem;
+  column-rule: 1px solid var(--color-charcoal);
+}
+
+@media (max-width: 768px) {
+  .editorial-columns {
+    column-count: 1;
+  }
+}
+
+/* Luxury hover underline effect */
+.luxury-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.luxury-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-underline:hover::after {
+  width: 100%;
+}
+
+/* Magazine masthead styling */
+.masthead {
+  border-top: 2px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-charcoal);
+}
+
+/* Colophon styling for footer */
+.colophon {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--color-cream-muted);
+}
